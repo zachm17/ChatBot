@@ -11,8 +11,8 @@ public class ChatbotRunner
 	public static void main(String [] args)
 	{
 		
-	ChatbotController botController = new ChatbotController();
-	botController.start();
+	ChatbotController myBotController = new ChatbotController();
+	myBotController.start();
 	
 	}
 }
