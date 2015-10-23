@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 
 public class ChatbotView
 {
-	public void showResponse(String wordsFromSomewhere)
+	public void showResponse(String displayText)
 	{
-		JOptionPane.showMessageDialog(null, wordsFromSomewhere);
+		JOptionPane.showMessageDialog(null, displayText);
 		
 	}
 	
