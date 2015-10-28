@@ -26,5 +26,38 @@ public class ChatbotController
 	public void start()
 	{
 		 myDisplay.showResponse("Hi " + myBot.getUserName());
+		 chat();
 	}
+	
+	private void chat()
+	{
+		String conversation = myDisplay.chatInput("What would you like to talk about today?");
+		while(myBot.lengthChecker(conversation))
+		{
+			if(myBot.contentChecker(conversation))
+			{
+				myDisplay.showResponse("wow, I had no idea you liked " + myBot.getContent());
+			}
+		
+//		{
+//			if(!simpleBot.quitChecker(conversation))
+//			{
+//				conversation = simpleBot.processInput(conversation);
+//			}
+//			else
+//			{
+//				shutDown();
+//			}
+		
+			conversation = myDisplay.chatInput(conversation);
+		}
+	}
+
+	
+	private void shutDown()
+	{
+		
+	}
+	
+	
 }
