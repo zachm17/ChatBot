@@ -42,6 +42,10 @@ public class ChatbotController
 			{
 				myDisplay.showResponse("what a freakin lame freakin meme :(");
 			}
+			else if (myBot.politicalTopicChecker(conversation))
+			{
+				myDisplay.showResponse("Wow you like politics? lol");
+			}
 		
 			conversation = myDisplay.chatInput(conversation);
 		}
