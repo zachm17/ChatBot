@@ -128,7 +128,7 @@ public Chatbot()
 				hasMeme = true;
 			}
 		}
-		
+		return hasMeme;
 	}
 	
 	/**
