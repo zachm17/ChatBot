@@ -38,16 +38,10 @@ public class ChatbotController
 			{
 				myDisplay.showResponse("wow, I had no idea you liked " + myBot.getContent());
 			}
-		
-//		{
-//			if(!simpleBot.quitChecker(conversation))
-//			{
-//				conversation = simpleBot.processInput(conversation);
-//			}
-//			else
-//			{
-//				shutDown();
-//			}
+			else if (myBot.memeChecker(conversation))
+			{
+				myDisplay.showResponse("what a freakin lame freakin meme :(");
+			}
 		
 			conversation = myDisplay.chatInput(conversation);
 		}

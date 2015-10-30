@@ -38,6 +38,7 @@ public Chatbot()
 		buildPoliticalTopicsList();
 	}
 	
+	
 	private void buildMemesList()
 	{
 		this.memesList.add("cute animals");
@@ -54,7 +55,19 @@ public Chatbot()
 	
 	private void buildPoliticalTopicsList()
 	{
-		
+		this.politicalTopicList.add("election");
+		this.politicalTopicList.add("democrat");
+		this.politicalTopicList.add("republican");
+		this.politicalTopicList.add("liberal");
+		this.politicalTopicList.add("conservative");
+		this.politicalTopicList.add("Trump");
+		this.politicalTopicList.add("Clinton");
+		this.politicalTopicList.add("Biden");
+		this.politicalTopicList.add("Carson");
+		this.politicalTopicList.add("Rubio");
+		this.politicalTopicList.add("Fiorina");
+		this.politicalTopicList.add("Sanders");
+		this.politicalTopicList.add("vote");
 	}
 	
 	/**
@@ -107,10 +120,19 @@ public Chatbot()
 	 * @return Whether the String is contained in the ArrayList.
 	 */
 	public boolean politicalTopicChecker(String currentInput)
-	{
-		return false;
-	}
+{
+	boolean hasTopic = false;
 	
+	for(String currentTopic:politicalTopicList)
+	{
+		if(currentInput.toLowerCase().contains(currentTopic.toLowerCase()))
+		{
+			hasTopic = true;
+		}
+	
+	}
+	return hasTopic;
+}
 	
 	/**
 	 * Checks to see that the supplied String value is in the current memesList variable.
@@ -123,13 +145,14 @@ public Chatbot()
 		
 		for(String currentMeme:memesList)
 		{
-			if(currentMeme.equalsIgnoreCase(currentInput))
+			if(currentInput.toLowerCase().contains(currentMeme.toLowerCase()))
 			{
 				hasMeme = true;
 			}
 		}
 		return hasMeme;
 	}
+	
 	
 	/**
 	 * Returns the username of this Chatbot instance.
@@ -164,7 +187,7 @@ public Chatbot()
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 	
 	/**
