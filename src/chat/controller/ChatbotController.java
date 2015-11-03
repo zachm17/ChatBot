@@ -33,7 +33,7 @@ public class ChatbotController
 	{
 		String conversation = myDisplay.chatInput("What would you like to talk about today?");
 		while(myBot.lengthChecker(conversation))
-		{
+		{ 
 			conversation = myDisplay.chatInput(myBot.processConversation(conversation));
 		}
 	}
