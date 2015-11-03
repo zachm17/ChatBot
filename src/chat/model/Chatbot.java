@@ -153,6 +153,52 @@ public Chatbot()
 		return hasMeme;
 	}
 	
+	public String processConversation(String currentInput)
+	{
+		String nextConversation = "OHHH, what else would you want to talk about? brub";
+		int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.
+		
+		switch (randomTopic)
+		{
+			case 0:
+				if(memeChecker(currentInput))
+				{
+					nextConversation = "That is a very popular meme this year and last. What else are you" + "wanting to talk about?";
+				}
+				break;
+			case 1:
+				if(politicalTopicChecker(currentInput))
+				{
+					nextConversation = " WOW you want to talk about politics? Let's talk bruv";
+				}
+				else
+				{
+					nextConversation = "Sorry man it failed politics";
+				}
+				break;
+			case 2:
+				if(contentChecker(currentInput))
+				{
+					nextConversation = " Great. Greyson is great.";
+				}
+				break;
+			case 3:
+				if(currentInput.length() > 40)
+				{
+					nextConversation = "What else would you like to talk about? You too fast bruv";
+				}
+				break;
+			case 4:
+				nextConversation = "How was that conversation? TTYL Hun";
+				break;
+			default:
+				nextConversation = "Hey bruv, what's up or down?";
+				break;
+		}
+		
+		return nextConversation;
+	}
+	
 	
 	/**
 	 * Returns the username of this Chatbot instance.
