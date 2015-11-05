@@ -163,7 +163,7 @@ public Chatbot()
 			case 0:
 				if(memeChecker(currentInput))
 				{
-					nextConversation = "That is a very popular meme this year and last. What else are you" + "wanting to talk about?";
+					nextConversation = "That is a very popular meme this year and last. What else are you" + " wanting to talk about?";
 				}
 				break;
 			case 1:

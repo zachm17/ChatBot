@@ -3,7 +3,7 @@ package chat.view;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 /**
- * Code to input popups and to output popups.
+ * Popup display class for GUI interaction in the Chatbot project.
  * @author Zach Moyes
  * 1.3 11/5/15 Added Icons to popup windows!
  */
@@ -16,7 +16,7 @@ public class ChatbotView
 	public ChatbotView()
 	{
 		windowMessage = "Hello from your friendly chatbot :D";
-		chatIcon = new ImageIcon(getClass().getResource("Images/lovato.jpeg"));
+		chatIcon = new ImageIcon(getClass().getResource("Images/yee.jpg"));
 	}
 	
 	public String chatInput(String displayText)
