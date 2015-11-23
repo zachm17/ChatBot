@@ -2,6 +2,9 @@ package chat.controller;
 
 import chat.view.ChatbotView; 
 import chat.model.Chatbot;
+import javax.swing.*;
+import java.awt.*;
+import chat.view.*;
 
 /**
  * Application controller for the Chatbot project.
@@ -13,12 +16,14 @@ public class ChatbotController
 {
 	private ChatbotView myDisplay;
 	private Chatbot myBot;
+	private ChatFrame chatFrame;
 	
 	public ChatbotController()
 	{
 		myDisplay = new ChatbotView();
 		String userName = myDisplay.chatInput("Hey man what's your name?");
 		myBot = new Chatbot(userName);
+		chatFrame = new ChatFrame(this);
 		
 		
 	}
