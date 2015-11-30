@@ -12,6 +12,7 @@ public class Chatbot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
+	private ArrayList<String> keyboardMash;
 	private String userName;
 	private String content;
 	
@@ -19,6 +20,7 @@ public Chatbot()
 {
 	memesList = new ArrayList<String>();
 	politicalTopicList = new ArrayList<String>();
+	
 	userName = new String();
 	content = new String();
 }
@@ -38,6 +40,20 @@ public Chatbot()
 		buildPoliticalTopicsList();
 	}
 	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean hasQuit = false;
+	
+		if (currentInput.equals("quit"))
+		{
+			hasQuit = true;
+		}
+	
+		
+		return hasQuit;
+}
+		
+	
 	
 	private void buildMemesList()
 	{
@@ -56,8 +72,8 @@ public Chatbot()
 	private void buildPoliticalTopicsList()
 	{
 		this.politicalTopicList.add("election");
-		this.politicalTopicList.add("democrat");
-		this.politicalTopicList.add("republican");
+		this.politicalTopicList.add("Democrat");
+		this.politicalTopicList.add("Republican");
 		this.politicalTopicList.add("liberal");
 		this.politicalTopicList.add("conservative");
 		this.politicalTopicList.add("Trump");
@@ -68,6 +84,7 @@ public Chatbot()
 		this.politicalTopicList.add("Fiorina");
 		this.politicalTopicList.add("Sanders");
 		this.politicalTopicList.add("vote");
+		this.politicalTopicList.add("11/4/16");
 	}
 	
 	/**
@@ -133,6 +150,25 @@ public Chatbot()
 	}
 	return hasTopic;
 }
+	
+	
+		
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean mashTyping = false;
+		
+		if(currentInput != null)
+		
+		if(currentInput.equals("sdf")||currentInput.equals("dfg")||currentInput.equals("cvb")||currentInput.equals(",./"))
+	
+	
+	{
+		mashTyping = true;
+	}
+	
+	return mashTyping;
+}
+
 	
 	/**
 	 * Checks to see that the supplied String value is in the current memesList variable.

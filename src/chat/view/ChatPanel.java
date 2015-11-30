@@ -15,6 +15,7 @@ public class ChatPanel extends JPanel
 	private JTextField firstTextField;
 	private SpringLayout baseLayout;
 	private JLabel chatTextField;
+	private JTextArea chatArea;
 	
 	public ChatPanel(ChatbotController baseController)
 	{
@@ -24,6 +25,7 @@ public class ChatPanel extends JPanel
 		firstButton = new JButton("Fun button for Greyson");
 		firstTextField = new JTextField("words can be typed here bruv");
 		chatTextField = new JLabel("LETS FREAKIN CHAT");
+		chatArea = new JTextArea(10,20);
 	
 		
 		setupPanel();
@@ -40,6 +42,8 @@ public class ChatPanel extends JPanel
 		this.add(firstButton);
 		this.add(firstTextField);
 		this.add(chatTextField);
+		this.add(chatArea);
+		firstTextField.setToolTipText("Type here to talk to Chatbot");
 	}
 	
 	private void setupLayout()
