@@ -16,14 +16,14 @@ public class ChatbotController
 {
 	private ChatbotView myDisplay;
 	private Chatbot myBot;
-	private ChatFrame chatFrame;
+	private ChatFrame baseFrame;
 	
 	public ChatbotController()
 	{
 		myDisplay = new ChatbotView();
 		String userName = myDisplay.chatInput("Hey man what's your name?");
 		myBot = new Chatbot(userName);
-		chatFrame = new ChatFrame(this);
+		baseFrame = new ChatFrame(this);
 		
 		
 	}
@@ -48,6 +48,21 @@ public class ChatbotController
 	{
 		myDisplay.showResponse("Bych, " + myBot.getUserName() + " it has been a pleasure to talk fam");
 		System.exit(0);
+	}
+	
+	public Chatbot getChatbot()
+	{
+		return myBot;
+	}
+	
+	public ChatbotView getChatView()
+	{
+		return myDisplay;
+	}
+	
+	public ChatFrame getBaseFrame()
+	{
+		return baseFrame;
 	}
 	
 	

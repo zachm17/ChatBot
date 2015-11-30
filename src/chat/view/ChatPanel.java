@@ -75,4 +75,9 @@ public class ChatPanel extends JPanel
 			}
 		});
 	}
+	public JTextField getTextField()
+	{
+		return firstTextField;
+	}
+	
 }
