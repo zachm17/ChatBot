@@ -5,27 +5,35 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import chat.controller.ChatbotController;
-
+import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 
 
 public class ChatPanel extends JPanel
 {
 	private ChatbotController baseController;
-	private JButton firstButton;
-	private JTextField firstTextField;
+	private JButton submitButton;
+	private JTextField typingField;
+	private JTextField typingField_1;
 	private SpringLayout baseLayout;
 	private JLabel chatTextField;
 	private JTextArea chatArea;
+	private JLabel image;
+	
 	
 	public ChatPanel(ChatbotController baseController)
 	{
 		this.baseController = baseController;
-		
 		baseLayout = new SpringLayout();
-		firstButton = new JButton("Fun button for Greyson");
-		firstTextField = new JTextField("words can be typed here bruv");
+		submitButton = new JButton("Fun button for Greyson");
+		typingField = new JTextField("words can be typed here bruv");
 		chatTextField = new JLabel("LETS FREAKIN CHAT");
 		chatArea = new JTextArea(10,20);
+		typingField_1 = new JTextField(30);
+		
+	
+		
+		
 	
 		
 		setupPanel();
@@ -38,23 +46,29 @@ public class ChatPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
-		this.setBackground(Color.MAGENTA);
-		this.add(firstButton);
-		this.add(firstTextField);
+		this.setBackground(Color.BLUE);
+		this.add(submitButton);
+		this.add(typingField_1);
 		this.add(chatTextField);
 		this.add(chatArea);
-		firstTextField.setToolTipText("Type here to talk to Chatbot");
+		this.add(image);
+		typingField_1.setToolTipText("Type here to talk to Chatbot");
+		chatArea.setEnabled(false);
+		
 	}
 	
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.NORTH, chatTextField, 41, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, chatTextField, 161, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 92, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, firstTextField, -50, SpringLayout.NORTH, firstButton);
-		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 62, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, firstButton, -45, SpringLayout.SOUTH, this);
-		
+		baseLayout.putConstraint(SpringLayout.EAST, submitButton, -89, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 84, SpringLayout.SOUTH, typingField_1);
+		baseLayout.putConstraint(SpringLayout.NORTH, typingField_1, 87, SpringLayout.SOUTH, chatTextField);
+		baseLayout.putConstraint(SpringLayout.EAST, typingField_1, -10, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatTextField, 56, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, chatTextField, -144, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 42, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 42, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
 	}
 	
 	private void changeRandomColor()
@@ -70,18 +84,22 @@ public class ChatPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		firstButton.addActionListener(new ActionListener()
+		submitButton.addActionListener(new ActionListener()
 		
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				firstTextField.setText("Wow, this is the most amazing click event ever! WOW!");
+				String userText = typingField.getText(); //Grab user typed answer
+				chatArea.append("\nUSER: " + userText); //display typed answer
+				typingField.setText(" "); 
+				String response = baseController.userToChatbot(userText); //send the text to chatbot //chatbot will process
+				chatArea.append("\nChatbot: " + response); //display the response
 			}
 		});
 	}
 	public JTextField getTextField()
 	{
-		return firstTextField;
+		return typingField_1;
 	}
 	
 }

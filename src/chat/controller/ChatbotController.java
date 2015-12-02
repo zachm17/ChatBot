@@ -24,8 +24,6 @@ public class ChatbotController
 		String userName = myDisplay.chatInput("Hey man what's your name?");
 		myBot = new Chatbot(userName);
 		baseFrame = new ChatFrame(this);
-		
-		
 	}
 	
 	public void start()
@@ -37,12 +35,26 @@ public class ChatbotController
 	private void chat()
 	{
 		String conversation = myDisplay.chatInput("What would you like to talk about today?");
-		while(myBot.lengthChecker(conversation))
-		{ 
-			conversation = myDisplay.chatInput(myBot.processConversation(conversation));
-		}
+		//while(myBot.lengthChecker(conversation))
+		//{ 
+		//	conversation = myDisplay.chatInput(myBot.processConversation(conversation));
+	//	}
 	}
 
+	
+	public String userToChatbot(String conversation)
+	{
+		String response = "";
+		
+		if(myBot.quitChecker(conversation))
+		{
+			shutDown();
+		}
+		
+		response = myBot.processConversation(conversation);
+		
+		return response;
+	}
 	
 	private void shutDown()
 	{

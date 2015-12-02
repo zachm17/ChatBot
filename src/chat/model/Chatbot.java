@@ -194,6 +194,11 @@ public Chatbot()
 		String nextConversation = "OHHH, what else would you want to talk about? brub";
 		int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.
 		
+		if(keyboardMashChecker(currentInput))
+		{
+			return "stop mashing the freaking keyboard bruv!!!!!";
+		}
+		
 		switch (randomTopic)
 		{
 			case 0:
