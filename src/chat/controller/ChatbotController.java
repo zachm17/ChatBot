@@ -9,7 +9,7 @@ import chat.view.*;
 /**
  * Application controller for the Chatbot project.
  * @author zmoy8227
- *@version 1.11 10/21/15 fixed error ;D
+ *@version 1.13 12/2/15 Completed ;D
  */
 
 public class ChatbotController
