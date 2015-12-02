@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import chat.controller.ChatbotController;
-import javax.swing.ImageIcon;
-import javax.imageio.ImageIO;
+
+
 
 
 public class ChatPanel extends JPanel
@@ -18,7 +18,7 @@ public class ChatPanel extends JPanel
 	private SpringLayout baseLayout;
 	private JLabel chatTextField;
 	private JTextArea chatArea;
-	private JLabel image;
+	
 	
 	
 	public ChatPanel(ChatbotController baseController)
@@ -51,7 +51,6 @@ public class ChatPanel extends JPanel
 		this.add(typingField_1);
 		this.add(chatTextField);
 		this.add(chatArea);
-		this.add(image);
 		typingField_1.setToolTipText("Type here to talk to Chatbot");
 		chatArea.setEnabled(false);
 		
