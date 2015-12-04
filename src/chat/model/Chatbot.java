@@ -12,7 +12,6 @@ public class Chatbot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
-	private ArrayList<String> keyboardMash;
 	private String userName;
 	private String content;
 	
@@ -99,16 +98,16 @@ public Chatbot()
 		
 		if(currentInput != null)
 		{
-			if(currentInput.length() >= 1)
+			if(currentInput.length() >= 10)
 			{
 				hasLength = true;
 			}
 		}
 		
-		if(currentInput !=null  && currentInput.length() > 0)
-		{
-			hasLength = true;   
-		}
+		//if(currentInput !=null  && currentInput.length() > 0)
+	//	{
+		//	hasLength = true;   
+		//}
 		
 		return hasLength;
 	}
@@ -225,9 +224,9 @@ public Chatbot()
 				break;
 			case 3:
 				if(currentInput.length() > 40)
-				{
-					nextConversation = "What else would you like to talk about? You too fast bruv";
-				}
+			{
+				nextConversation = "What else would you like to talk about? You too fast bruv";
+			}
 				break;
 			case 4:
 				nextConversation = "How was that conversation? TTYL Hun";

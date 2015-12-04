@@ -14,7 +14,6 @@ public class ChatPanel extends JPanel
 	private ChatbotController baseController;
 	private JButton submitButton;
 	private JTextField typingField;
-	private JTextField typingField_1;
 	private SpringLayout baseLayout;
 	private JLabel chatTextField;
 	private JTextArea chatArea;
@@ -25,11 +24,11 @@ public class ChatPanel extends JPanel
 	{
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
-		submitButton = new JButton("Fun button for Greyson");
+		submitButton = new JButton("Submit chat");
 		typingField = new JTextField("words can be typed here bruv");
 		chatTextField = new JLabel("LETS FREAKIN CHAT");
 		chatArea = new JTextArea(10,20);
-		typingField_1 = new JTextField(30);
+		typingField = new JTextField(30);
 		
 	
 		
@@ -48,10 +47,10 @@ public class ChatPanel extends JPanel
 		this.setLayout(baseLayout);
 		this.setBackground(Color.BLUE);
 		this.add(submitButton);
-		this.add(typingField_1);
+		this.add(typingField);
 		this.add(chatTextField);
 		this.add(chatArea);
-		typingField_1.setToolTipText("Type here to talk to Chatbot");
+		typingField.setToolTipText("Type here to talk to Chatbot");
 		chatArea.setEnabled(false);
 		
 	}
@@ -59,9 +58,9 @@ public class ChatPanel extends JPanel
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.EAST, submitButton, -89, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 84, SpringLayout.SOUTH, typingField_1);
-		baseLayout.putConstraint(SpringLayout.NORTH, typingField_1, 87, SpringLayout.SOUTH, chatTextField);
-		baseLayout.putConstraint(SpringLayout.EAST, typingField_1, -10, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 84, SpringLayout.SOUTH, typingField);
+		baseLayout.putConstraint(SpringLayout.NORTH, typingField, 87, SpringLayout.SOUTH, chatTextField);
+		baseLayout.putConstraint(SpringLayout.EAST, typingField, -10, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatTextField, 56, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, chatTextField, -144, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 42, SpringLayout.NORTH, this);
@@ -98,7 +97,7 @@ public class ChatPanel extends JPanel
 	}
 	public JTextField getTextField()
 	{
-		return typingField_1;
+		return typingField;
 	}
 	
 }

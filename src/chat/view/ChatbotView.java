@@ -23,7 +23,7 @@ public class ChatbotView
 	{
 		String returnedAnswer = ""; 
 		
-		returnedAnswer = JOptionPane.showInputDialog(null, displayText, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon, null, "Asnswer here :D").toString();
+		returnedAnswer = JOptionPane.showInputDialog(null, displayText, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon, null, "Asnswer here :D") + " ";
 		
 		return returnedAnswer;
 	}
@@ -35,5 +35,10 @@ public class ChatbotView
 	{
 		JOptionPane.showMessageDialog(null, displayText, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon);
 		
+	}
+	
+	public void displayText(String displayText)
+	{
+		JOptionPane.showMessageDialog(null, displayText);
 	}
 }

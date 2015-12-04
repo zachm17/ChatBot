@@ -2,8 +2,6 @@ package chat.controller;
 
 import chat.view.ChatbotView; 
 import chat.model.Chatbot;
-import javax.swing.*;
-import java.awt.*;
 import chat.view.*;
 
 /**
@@ -34,11 +32,11 @@ public class ChatbotController
 	
 	private void chat()
 	{
-		String conversation = myDisplay.chatInput("What would you like to talk about today?");
+		//String conversation = myDisplay.chatInput("What would you like to talk about today?");
 		//while(myBot.lengthChecker(conversation))
 		//{ 
 		//	conversation = myDisplay.chatInput(myBot.processConversation(conversation));
-	//	}
+		//}
 	}
 
 	
@@ -58,7 +56,7 @@ public class ChatbotController
 	
 	private void shutDown()
 	{
-		myDisplay.showResponse("Bych, " + myBot.getUserName() + " it has been a pleasure to talk fam");
+		myDisplay.displayText("Bych, " + myBot.getUserName() + " it has been a pleasure to talk fam");
 		System.exit(0);
 	}
 	
