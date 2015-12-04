@@ -104,10 +104,10 @@ public Chatbot()
 			}
 		}
 		
-		//if(currentInput !=null  && currentInput.length() > 0)
-	//	{
-		//	hasLength = true;   
-		//}
+		if(currentInput !=null  && currentInput.length() > 0)
+		{
+			hasLength = true;   
+		}
 		
 		return hasLength;
 	}
@@ -222,12 +222,12 @@ public Chatbot()
 					nextConversation = " Great. Greyson is great.";
 				}
 				break;
-			case 3:
-				if(currentInput.length() > 40)
-			{
-				nextConversation = "What else would you like to talk about? You too fast bruv";
-			}
-				break;
+			//case 3:
+				//if(currentInput.length() > 40)
+			//{
+			//	nextConversation = "What else would you like to talk about? You too fast bruv";
+			//}
+			//	break;
 			case 4:
 				nextConversation = "How was that conversation? TTYL Hun";
 				break;
