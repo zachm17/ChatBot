@@ -17,6 +17,11 @@ public class ChatPanel extends JPanel
 	private SpringLayout baseLayout;
 	private JLabel chatTextField;
 	private JTextArea chatArea;
+	private JLabel promptLabel;
+	private JButton tweetButton;
+	private JButton saveButton;
+	private JButton loadButton;
+	private JScrollPane textPane;
 	
 	
 	
@@ -34,7 +39,7 @@ public class ChatPanel extends JPanel
 		
 		
 	
-		
+		setupChatPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -42,6 +47,17 @@ public class ChatPanel extends JPanel
 	/**
 	 * Helper method to load all GUI Components into the panel
 	 */
+	
+	private void setupChatPane()
+	{
+		textPane = new JScrollPane(chatArea);
+		chatArea.setLineWrap(true);
+		chatArea.setWrapStyleWord(true);
+		chatArea.setEditable(false);
+		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+	}
+	
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
