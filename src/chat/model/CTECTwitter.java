@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * 
  * @author Zach Moyes
- * @version 0.2 Ref  T4J
+ * @version 0.3 added statusList to constructor
  * @description CTEC TWITTER BABAY
  */
 public class CTECTwitter
@@ -14,4 +14,11 @@ public class CTECTwitter
 	//Declaration
 	private ArrayList<Status> statusList;
 	private ArrayList<String> wordList;
+	
+	public CTECTwitter()
+	{
+		statusList = new ArrayList<Status>();
+	}
+	
+	
 }
