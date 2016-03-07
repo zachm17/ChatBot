@@ -110,6 +110,14 @@ public class ChatPanel extends JPanel
 				chatArea.append("\nChatbot: " + response); //display the response
 			}
 		});
+		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				baseController.sendTweet("no text to send");
+			}
+		});
 	}
 	public JTextField getTextField()
 	{
