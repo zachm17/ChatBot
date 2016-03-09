@@ -37,6 +37,9 @@ public class ChatPanel extends JPanel
 		tweetButton = new JButton("tweet here");
 		baseLayout.putConstraint(SpringLayout.WEST, tweetButton, 117, SpringLayout.WEST, this);
 		textPane = new JScrollPane();
+		saveButton = new JButton("save something");
+		loadButton = new JButton("load stuff");
+		promptLabel = new JLabel();
 		
 	
 		
@@ -72,6 +75,9 @@ public class ChatPanel extends JPanel
 		//this.add(chatArea);
 		this.add(tweetButton);
 		this.add(textPane);
+		this.add(saveButton);
+		this.add(loadButton);
+		this.add(promptLabel);
 		typingField.setToolTipText("Type here to talk to Chatbot");
 		chatArea.setEnabled(false);
 		
