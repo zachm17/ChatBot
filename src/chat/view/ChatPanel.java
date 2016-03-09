@@ -34,6 +34,9 @@ public class ChatPanel extends JPanel
 		chatTextField = new JLabel("LETS FREAKIN CHAT");
 		chatArea = new JTextArea(10,20);
 		typingField = new JTextField(30);
+		tweetButton = new JButton("tweet here");
+		baseLayout.putConstraint(SpringLayout.WEST, tweetButton, 117, SpringLayout.WEST, this);
+		textPane = new JScrollPane();
 		
 	
 		
@@ -51,6 +54,7 @@ public class ChatPanel extends JPanel
 	private void setupChatPane()
 	{
 		textPane = new JScrollPane(chatArea);
+		
 		chatArea.setLineWrap(true);
 		chatArea.setWrapStyleWord(true);
 		chatArea.setEditable(false);
@@ -65,7 +69,9 @@ public class ChatPanel extends JPanel
 		this.add(submitButton);
 		this.add(typingField);
 		this.add(chatTextField);
-		this.add(chatArea);
+		//this.add(chatArea);
+		this.add(tweetButton);
+		this.add(textPane);
 		typingField.setToolTipText("Type here to talk to Chatbot");
 		chatArea.setEnabled(false);
 		
@@ -83,6 +89,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 42, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, tweetButton, 61, SpringLayout.SOUTH, textPane);
 	}
 	
 	private void changeRandomColor()
