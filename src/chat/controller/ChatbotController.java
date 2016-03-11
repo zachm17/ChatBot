@@ -68,6 +68,13 @@ public class ChatbotController
 		chatTwitter.sendTweet(tweetText);
 	}
 	
+	public String analyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + "has ....";
+		
+		return userAnalysis;
+	}
+	
 	public void handleErrors (String errorMessage)
 	{
 		myDisplay.displayText(errorMessage);
