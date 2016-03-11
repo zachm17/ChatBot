@@ -3,6 +3,7 @@ package chat.model;
 import twitter4j.*;
 import java.util.ArrayList;
 import chat.controller.ChatbotController;
+import java.util.List;
 
 
 /**
@@ -48,25 +49,38 @@ public class CTECTwitter
 		while (page <= 10)
 		{
 			statusPage.setPage(page);
-			statuses.addAll(chatbotTwitter.getUserTimeline(twitterHandle, statusPage));
+			statusList.addAll(chatbotTwitter.getUserTimeline(twitterHandle, statusPage));
 			page++;
 			
 		}
-		for (Status currentStatus : statuses)
+		
+		for (Status currentStatus : statusList)
 		{
 			String[] tweetText = currentStatus.getText().split(" ");
 			for (String word : tweetText)
 			{
-				tweetTexts.add(removePunctuation(word).toLowerCase());
+				wordList.add(removePunctuation(word).toLowerCase());
 			}
 		}
-		removeCommonEnglishWords(tweetTexts);
+		removeCommonEnglishWords(wordList);
+		removeEmptyText();
+	
 		
+		}
+	
+	private String removePunctuation(String currentString)
+	{
+		return null;
+	}
+	
+	private void removeEmptyText()
+	{
 		
-		
-		
-		
-		
+	}
+	
+	private List removeCommonEnglishWords(List<String> wordList)
+	{
+		return null;
 	}
 }
 
