@@ -42,6 +42,7 @@ public class ChatPanel extends JPanel
 		loadButton = new JButton("load stuff");
 		promptLabel = new JLabel();
 		analyzeTwitterButton = new JButton("ANALYZE TWEETS FAM");
+		chatArea = new JTextArea(10,20);
 		
 		
 	
@@ -87,7 +88,7 @@ public class ChatPanel extends JPanel
 		//chatArea = new JTextArea(10,20);
 		
 		//add(chatArea);
-		//chatArea.setEnabled(false);
+		chatArea.setEnabled(false);
 		
 	}
 	
