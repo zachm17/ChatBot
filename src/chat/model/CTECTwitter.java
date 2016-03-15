@@ -85,7 +85,14 @@ public class CTECTwitter
 	
 	private void removeEmptyText()
 	{
-		
+		for (int spot = 0; spot < wordList.size(); spot++)
+		{
+			if (wordList.get(spot).equals(""))
+			{
+				wordList.remove(spot);
+				spot--; //When you remove you have to do -- to go back or you will skip over some spots. jake and jake
+			}
+		}
 	}
 	
 	private List removeCommonEnglishWords(List<String> wordList)
