@@ -70,7 +70,7 @@ public class ChatbotController
 	
 	public String analyze(String userName)
 	{
-		String userAnalysis = "The Twitter user " + userName + "has ....";
+		String userAnalysis = "The Twitter user " + userName + "has many tweets. " + chatTwitter.topResults();
 		
 		return userAnalysis;
 	}

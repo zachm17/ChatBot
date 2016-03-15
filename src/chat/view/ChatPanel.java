@@ -152,9 +152,9 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String user = typingField.getText();
-				String results = baseController.analyze(user);
-				chatArea.setText(results);
+				String user = typingField.getText(); //This grabs whatever the user typed
+				String results = baseController.analyze(user); //This gets what the user wanted
+				chatArea.setText(results); //This displays the results of the tweet
 			}
 		});
 	}
