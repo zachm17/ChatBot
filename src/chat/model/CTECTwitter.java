@@ -151,6 +151,7 @@ public class CTECTwitter
 		}
 		catch (FileNotFoundException e)
 		{
+			baseController.handleErrors(e.getMessage());
 			return new String[0];
 		}
 		return boringWords;
