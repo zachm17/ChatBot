@@ -70,17 +70,17 @@ public class CTECTwitter
 	
 	private String removePunctuation(String currentString)
 	{
-		String punctuation = ".,'?!:;\"(){}^[]<>-";
+		String punctuation = ".,'?!:;\"(){}^[]<>-"; // think about adding hashtag and @
 		
 		String scrubbedString = "";
 		for(int i = 0; i < currentString.length(); i++)
 		{
-			if (punctuation.indexOf(currentString.charAt(i)) == -1)
+			if (punctuation.indexOf(currentString.charAt(i)) == -1) //SO BASICALLY THIS LINE TAKES THE WORD AND CHECKS IF ANY LETTERS OR SYMBOLS ARE IN STRING PUNCTUATION AND YEAH
 			{
-				scrubbedString += currentString.charAt(i);
+				scrubbedString += currentString.charAt(i); //Puts this into scrubbedString
 			}
 		}
-		return scrubbedString;
+		return scrubbedString; //Returns the string boooooyyyyy
 	}
 	
 	private void removeEmptyText()
