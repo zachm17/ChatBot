@@ -97,8 +97,26 @@ public class CTECTwitter
 	
 	private List removeCommonEnglishWords(List<String> wordList)
 	{
-		return null;
+		String[] boringWords = importWordsToArray();
+		
+		for(int count = 0; count < wordList.size(); count++)
+		{
+			for (int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
+			{
+				if(wordList.get(count).equalsIgnoreCase(boringWords[removeSpot]))
+				{
+					wordList.remove(count);
+					count--;
+					removeSpot = boringWords.length; //Exit the inner loop
+				}
+			}
+		}
+		//Comment this if you want to keep Twitter usernames in your word list.
+		//removeTwitterUsernamesFromList(wordList);
+		
+		return wordList;
 	}
+	
 }
 
 
