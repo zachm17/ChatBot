@@ -112,11 +112,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, saveButton, -59, SpringLayout.WEST, tweetButton);
 		baseLayout.putConstraint(SpringLayout.SOUTH, tweetButton, -37, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, tweetButton, -263, SpringLayout.EAST, this);
-		
-		
-		
-		
-		
+			
 	}
 	
 	private void changeRandomColor()
