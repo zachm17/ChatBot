@@ -1,9 +1,18 @@
 package chat.model;
 
-import twitter4j.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import chat.controller.ChatbotController;
 import java.util.List;
+import java.util.Scanner;
+
+import twitter4j.Paging;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import chat.controller.ChatbotController;
+
 
 
 /**
@@ -115,6 +124,36 @@ public class CTECTwitter
 		//removeTwitterUsernamesFromList(wordList);
 		
 		return wordList;
+	}
+	
+	private String[] importWordsToArray()
+	{
+		String[] boringWords;
+		int wordCount = 0;
+		try
+		{
+			Scanner wordFile = new Scanner(new File("commonWords.txt"));
+			while (wordFile.hasNext())
+			{
+				wordCount++;
+				wordFile.next();
+			}
+			wordFile.reset();
+			boringWords = new String[wordCount];
+			int boringWordCount = 0;
+			while (wordFile.hasNext())
+			{
+				boringWords[boringWordCount] = wordFile.next();
+				boringWordCount++;
+			}
+			wordFile.close();
+		
+		}
+		catch (FileNotFoundException e)
+		{
+			return new String[0];
+		}
+		return boringWords;
 	}
 	
 }
