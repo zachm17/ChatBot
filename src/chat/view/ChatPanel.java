@@ -1,9 +1,19 @@
 package chat.view;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SpringLayout;
+
 import chat.controller.ChatbotController;
 
 
@@ -14,6 +24,7 @@ public class ChatPanel extends JPanel
 	private ChatbotController baseController;
 	private JButton submitButton;
 	private JTextField typingField;
+	//private JTextField typingField_1;
 	//private JTextField typingField_1;
 	private SpringLayout baseLayout;
 	private JLabel chatTextField;
@@ -33,9 +44,10 @@ public class ChatPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		submitButton = new JButton("Submit chat");
+		
 		typingField = new JTextField("words can be typed here bruv");
 		chatTextField = new JLabel("LETS FREAKIN CHAT");
-		typingField = new JTextField(30);
+		//typingField_1 = new JTextField(30);
 		tweetButton = new JButton("tweet here");
 		textPane = new JScrollPane();
 		saveButton = new JButton("save something");
@@ -76,7 +88,6 @@ public class ChatPanel extends JPanel
 		this.add(submitButton);
 		this.add(typingField);
 		this.add(chatTextField);
-		//this.add(chatArea);
 		this.add(tweetButton);
 		this.add(textPane);
 		this.add(saveButton);
@@ -84,10 +95,12 @@ public class ChatPanel extends JPanel
 		this.add(promptLabel);
 		this.add(analyzeTwitterButton);
 		typingField.setToolTipText("Type here to talk to Chatbot");
-		this.setPreferredSize(new Dimension(800, 400));
+		this.setPreferredSize(new Dimension(825, 540));
 		//chatArea = new JTextArea(10,20);
+	
 		
-		//add(chatArea);
+		
+		add(chatArea);
 		chatArea.setEnabled(false);
 		
 	}
@@ -95,13 +108,6 @@ public class ChatPanel extends JPanel
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.EAST, submitButton, -89, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 84, SpringLayout.SOUTH, typingField);
-		baseLayout.putConstraint(SpringLayout.NORTH, typingField, 87, SpringLayout.SOUTH, chatTextField);
-		baseLayout.putConstraint(SpringLayout.EAST, typingField, -10, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatTextField, 56, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, chatTextField, -144, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 42, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 10, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, textPane);
 		baseLayout.putConstraint(SpringLayout.SOUTH, analyzeTwitterButton, -24, SpringLayout.NORTH, saveButton);
@@ -112,7 +118,16 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, saveButton, -59, SpringLayout.WEST, tweetButton);
 		baseLayout.putConstraint(SpringLayout.SOUTH, tweetButton, -37, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, tweetButton, -263, SpringLayout.EAST, this);
-			
+		baseLayout.putConstraint(SpringLayout.SOUTH, typingField, -6, SpringLayout.NORTH, submitButton);
+		baseLayout.putConstraint(SpringLayout.EAST, typingField, -10, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, chatTextField, -145, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, submitButton, 271, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, typingField, 136, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatTextField, -45, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, typingField, -19, SpringLayout.NORTH, analyzeTwitterButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 39, SpringLayout.SOUTH, chatTextField);
+		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 214, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, chatArea, -59, SpringLayout.EAST, this);
 	}
 	
 	private void changeRandomColor()
