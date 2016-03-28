@@ -190,18 +190,18 @@ public class CTECTwitter
 	{
 		String results = " ";
 		
-		Query query = new Query("LEAN ON");
+		Query query = new Query("Obama");
 		query.setCount(100);
-		query.setGeoCode(new GeoLocation(40.587521, -11.869178), 5, Query.MILES);
-		query.setSince("2016-1-1");
+		query.setGeoCode(new GeoLocation(40.587521, -111.869178), 1000, Query.KILOMETERS);
+		query.setSince("2010-1-1");
 		try
 		{
 			
 			QueryResult result = chatbotTwitter.search(query);
-			results.concat("Count : " + result.getTweets().size());
+			results +=("Count : " + result.getTweets().size() + " : " + "\n" );
 			for (Status tweet : result.getTweets())
 			{
-				results.concat("@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n");
+				results +=( " @" + tweet.getUser().getName() + ": " + tweet.getText() + "\n" + "\n");
 			}
 		}
 		catch (TwitterException error)

@@ -34,8 +34,10 @@ public class ChatPanel extends JPanel
 	private JButton saveButton;
 	private JButton loadButton;
 	private JScrollPane textPane;
+	private JScrollPane textPane_1;
 	//private JScrollPane textPane_1;
 	private JButton analyzeTwitterButton;
+	private JButton investigateTweetsButton;
 	
 	
 	
@@ -44,7 +46,6 @@ public class ChatPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		submitButton = new JButton("Submit chat");
-		
 		typingField = new JTextField("words can be typed here bruv");
 		chatTextField = new JLabel("LETS FREAKIN CHAT");
 		//typingField_1 = new JTextField(30);
@@ -54,8 +55,7 @@ public class ChatPanel extends JPanel
 		loadButton = new JButton("load stuff");
 		promptLabel = new JLabel();
 		analyzeTwitterButton = new JButton("ANALYZE TWEETS FAM");
-		chatArea = new JTextArea(10,20);
-		
+		investigateTweetsButton = new JButton("INVESTIGATE TWEETS FAM");
 		
 	
 		
@@ -72,13 +72,13 @@ public class ChatPanel extends JPanel
 	
 	private void setupChatPane()
 	{
-		textPane = new JScrollPane();
+		textPane_1 = new JScrollPane();
 		
 		chatArea.setLineWrap(true);
 		chatArea.setWrapStyleWord(true);
 		chatArea.setEditable(false);
-		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		textPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		textPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 	}
 	
 	private void setupPanel()
@@ -89,18 +89,21 @@ public class ChatPanel extends JPanel
 		this.add(typingField);
 		this.add(chatTextField);
 		this.add(tweetButton);
-		this.add(textPane);
+		this.add(textPane_1);
 		this.add(saveButton);
 		this.add(loadButton);
 		this.add(promptLabel);
 		this.add(analyzeTwitterButton);
+		this.add(investigateTweetsButton);
 		typingField.setToolTipText("Type here to talk to Chatbot");
-		this.setPreferredSize(new Dimension(825, 540));
-		//chatArea = new JTextArea(10,20);
-	
-		
-		
+		this.setPreferredSize(new Dimension(525, 540));
+		chatArea = new JTextArea(10,20);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 6, SpringLayout.SOUTH, investigateTweetsButton);
+		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 19, SpringLayout.EAST, textPane_1);
+		baseLayout.putConstraint(SpringLayout.EAST, chatArea, 204, SpringLayout.EAST, this);
 		add(chatArea);
+		//chatArea = new JTextArea(10,20);
+		//add(chatArea);
 		chatArea.setEnabled(false);
 		
 	}
@@ -108,8 +111,6 @@ public class ChatPanel extends JPanel
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.EAST, submitButton, -89, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 10, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, textPane);
 		baseLayout.putConstraint(SpringLayout.SOUTH, analyzeTwitterButton, -24, SpringLayout.NORTH, saveButton);
 		baseLayout.putConstraint(SpringLayout.EAST, analyzeTwitterButton, 0, SpringLayout.EAST, saveButton);
 		baseLayout.putConstraint(SpringLayout.SOUTH, loadButton, -21, SpringLayout.SOUTH, this);
@@ -127,7 +128,6 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.SOUTH, typingField, -19, SpringLayout.NORTH, analyzeTwitterButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 39, SpringLayout.SOUTH, chatTextField);
 		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 214, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.EAST, chatArea, -59, SpringLayout.EAST, this);
 	}
 	
 	private void changeRandomColor()
@@ -163,6 +163,16 @@ public class ChatPanel extends JPanel
 				baseController.sendTweet("no text to send");
 			}
 		});
+		
+		investigateTweetsButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String results = baseController.investigation();
+				chatArea.setText(results);
+			}
+		}); 
+	
 		analyzeTwitterButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)

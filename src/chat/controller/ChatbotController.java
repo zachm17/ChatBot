@@ -87,6 +87,15 @@ public class ChatbotController
 		return userAnalysis;
 	}
 	
+	public String investigation()
+	{
+		String twitterResults = chatTwitter.sampleInvestigation();
+		
+		return twitterResults;
+	}
+	
+	
+	
 	public void handleErrors (String errorMessage)
 	{
 		myDisplay.displayText(errorMessage);
