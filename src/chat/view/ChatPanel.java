@@ -15,6 +15,10 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SpringLayout;
 
 import chat.controller.ChatbotController;
+import chat.controller.IOController;
+import java.io.File;
+import java.io.FileWriter;
+
 
 
 
@@ -48,7 +52,7 @@ public class ChatPanel extends JPanel
 		submitButton = new JButton("Submit chat");
 		typingField = new JTextField("words can be typed here bruv");
 		chatTextField = new JLabel("LETS FREAKIN CHAT");
-		//typingField_1 = new JTextField(30);
+		typingField = new JTextField(30);
 		tweetButton = new JButton("tweet here");
 		textPane = new JScrollPane();
 		saveButton = new JButton("save something");
@@ -72,13 +76,13 @@ public class ChatPanel extends JPanel
 	
 	private void setupChatPane()
 	{
-		textPane_1 = new JScrollPane();
+		textPane = new JScrollPane();
 		
 		chatArea.setLineWrap(true);
 		chatArea.setWrapStyleWord(true);
 		chatArea.setEditable(false);
-		textPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		textPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 	}
 	
 	private void setupPanel()
@@ -98,9 +102,8 @@ public class ChatPanel extends JPanel
 		typingField.setToolTipText("Type here to talk to Chatbot");
 		this.setPreferredSize(new Dimension(525, 540));
 		chatArea = new JTextArea(10,20);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 6, SpringLayout.SOUTH, investigateTweetsButton);
-		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 19, SpringLayout.EAST, textPane_1);
-		baseLayout.putConstraint(SpringLayout.EAST, chatArea, 204, SpringLayout.EAST, this);
+		
+		
 		add(chatArea);
 		//chatArea = new JTextArea(10,20);
 		//add(chatArea);
@@ -128,6 +131,11 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.SOUTH, typingField, -19, SpringLayout.NORTH, analyzeTwitterButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 39, SpringLayout.SOUTH, chatTextField);
 		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 214, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 6, SpringLayout.SOUTH, investigateTweetsButton);
+		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 19, SpringLayout.EAST, textPane_1);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, 199, SpringLayout.SOUTH, chatTextField);
+		baseLayout.putConstraint(SpringLayout.EAST, chatArea, -35, SpringLayout.EAST, this);
+		
 	}
 	
 	private void changeRandomColor()
@@ -180,6 +188,24 @@ public class ChatPanel extends JPanel
 				String user = typingField.getText(); //This grabs whatever the user typed
 				String results = baseController.analyze(user); //This gets what the user wanted
 				chatArea.setText(results); //This displays the results of the tweet
+			}
+		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String file = IOController.saveFile(chatArea.getText());
+				promptLabel.setText(file);
+			}
+		});
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String loadedText = IOController.readTextFromFile(promptLabel.getText());
+				promptLabel.setText(loadedText);
 			}
 		});
 	}
